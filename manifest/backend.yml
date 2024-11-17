@@ -1,0 +1,25 @@
+name: SleekEcom
+
+entities:
+    User:
+        authenticable: true
+        properties:
+            - name
+            - { name: gender, type: boolean }
+
+    Product:
+        properties:
+            - name
+            - { name: category, type: string }
+            - { name: description, type: string }
+        belongsToMany:
+            - ProductImage
+            - ProductCategory
+
+    ProductImage:
+        properties:
+            - { name: path, type: string }
+
+    ProductCategory:
+        properties:
+            - { name: name, type: string }
