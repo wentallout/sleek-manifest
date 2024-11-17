@@ -5,20 +5,25 @@ entities:
         authenticable: true
         properties:
             - name
+            - { name: avatar, type: image }
             - { name: gender, type: boolean }
 
     Product:
         properties:
             - name
+            - brand
+            - { name: price, type: money, options: { currency: 'USD' } }
             - { name: category, type: string }
-            - { name: description, type: string }
+            - { name: description, type: text }
+            - { name: isHot, type: boolean }
+            - { name: isNew, type: boolean }
         belongsToMany:
             - ProductImage
             - ProductCategory
 
     ProductImage:
         properties:
-            - { name: path, type: string }
+            - { name: path, type: image }
 
     ProductCategory:
         properties:
